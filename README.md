@@ -5,7 +5,7 @@
 Server made to run together with [battleship client in VueJS3.](https://github.com/Arnaldoeloi/battleship-client).
 
 
-![alt_text](https://github.com/Arnaldoeloi/battleship-server/blob/master/app_preview.png?raw=true)
+![alt_text](https://github.com/Arnaldoeloi/battleship-server/blob/master/app_preview.jpg?raw=true)
 
 
 
