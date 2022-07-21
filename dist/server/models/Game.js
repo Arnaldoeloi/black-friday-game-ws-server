@@ -10,17 +10,19 @@ var GAME_STATE;
 })(GAME_STATE || (GAME_STATE = {}));
 exports.GAME_STATE = GAME_STATE;
 class Game {
-    constructor(serverName, host, gameItems, gameDurationInSeconds, maxPlayers) {
+    constructor(serverName, host, gameItems, serverTimeLimit, maxPlayers) {
         this.state = GAME_STATE.WAITING_PLAYERS;
         this.players = Array();
         this.serverName = "";
-        this.gameDurationInSeconds = 120;
+        this.serverIp = "localhost";
+        this.serverPort = 7777;
+        this.serverTimeLimit = 120;
         this.maxPlayers = 4;
         this.gameItems = [];
         this.state = GAME_STATE.WAITING_PLAYERS;
         this.gameItems = gameItems;
         this.serverName = serverName;
-        this.gameDurationInSeconds = gameDurationInSeconds;
+        this.serverTimeLimit = serverTimeLimit;
         this.maxPlayers = maxPlayers;
         this.host = host;
     }

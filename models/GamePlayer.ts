@@ -19,4 +19,5 @@ export class GamePlayer{
         this.isReady = false;
     }
 
+    
 }

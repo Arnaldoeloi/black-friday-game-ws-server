@@ -15,18 +15,18 @@ class Game {
     serverName: string = "";
     serverIp: string = "localhost";
     serverPort: number = 7777;
-    gameDurationInSeconds: number = 120;
+    serverTimeLimit: number = 120;
     maxPlayers: number = 4;
     host: Player | undefined;
 
     gameItems: Array<GameItem> = [];
 
 
-    constructor(serverName: string, host: Player, gameItems: Array<GameItem>, gameDurationInSeconds: number, maxPlayers: number){
+    constructor(serverName: string, host: Player, gameItems: Array<GameItem>, serverTimeLimit: number, maxPlayers: number){
         this.state = GAME_STATE.WAITING_PLAYERS;
         this.gameItems = gameItems;
         this.serverName = serverName;
-        this.gameDurationInSeconds = gameDurationInSeconds;
+        this.serverTimeLimit = serverTimeLimit;
         this.maxPlayers = maxPlayers;
         this.host = host;
     }
