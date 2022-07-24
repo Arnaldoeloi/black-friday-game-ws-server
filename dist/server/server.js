@@ -44,7 +44,6 @@ function playerFromRequest(userId, name, nickname, ws) {
     return player;
 }
 function listGamesAvailable() {
-    return games;
     return games.filter(g => g.state == Game_1.GAME_STATE.WAITING_PLAYERS);
 }
 wss.on('connection', (ws, request, client) => {
@@ -63,9 +62,9 @@ wss.on('connection', (ws, request, client) => {
         ws.send(msgEvent.toString());
     });
     ws.on('createNewServer', function (data) {
-        const game = new Game_1.Game(data.serverName, reqPlayer, data.gameItems, data.serverTimeLimit, data.maxPlayers);
+        const game = new Game_1.Game(data.serverName, reqPlayer, data.gameItems, data.serverTimeLimit, data.maxPlayers, data.hostNickname, data.serverIp, data.serverPort);
         games.push(game);
-        const newServerEvent = new Event('serverCreated', { 'playerId': data.playerId, 'nickname': data.nickname, 'serverName': data.serverName, 'serverTimeLimit': data.serverTimeLimit, "maxPlayers": data.maxPlayers, "serverIp": data.serverIp, "serverPort": data.serverPort });
+        const newServerEvent = new Event('serverCreated', { 'playerId': data.playerId, 'hostNickname': data.hostNickname, 'serverName': data.serverName, 'serverTimeLimit': data.serverTimeLimit, "maxPlayers": data.maxPlayers, "serverIp": data.serverIp, "serverPort": data.serverPort });
         sendEventToLobby(newServerEvent);
     });
     ws.on('playerMovement', function (data) {

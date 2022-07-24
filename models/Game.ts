@@ -12,8 +12,9 @@ class Game {
 
     state = GAME_STATE.WAITING_PLAYERS;
     players = Array<GamePlayer>();
+    hostNickname: string = "";
     serverName: string = "";
-    serverIp: string = "localhost";
+    serverIp: string = "127.0.0.1";
     serverPort: number = 7777;
     serverTimeLimit: number = 120;
     maxPlayers: number = 4;
@@ -22,13 +23,16 @@ class Game {
     gameItems: Array<GameItem> = [];
 
 
-    constructor(serverName: string, host: Player, gameItems: Array<GameItem>, serverTimeLimit: number, maxPlayers: number){
+    constructor(serverName: string, host: Player, gameItems: Array<GameItem>, serverTimeLimit: number, maxPlayers: number, hostNickname: string, serverIp: string, serverPort: number){
         this.state = GAME_STATE.WAITING_PLAYERS;
         this.gameItems = gameItems;
         this.serverName = serverName;
         this.serverTimeLimit = serverTimeLimit;
         this.maxPlayers = maxPlayers;
         this.host = host;
+        this.serverIp = serverIp;
+        this.serverPort = serverPort;
+        this.hostNickname = hostNickname;
     }
 
     startGame(){
